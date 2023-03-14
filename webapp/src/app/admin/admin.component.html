@@ -1,0 +1,122 @@
+<div class = "level-center">
+        <div class="level-right pt-4 ">
+            <button class="button is-warning" (click)="logout()">logout</button>
+        </div>
+</div>
+<div class = "level-left pt-4">
+    <aside class="menu level-top">
+        <p class="menu-label">
+            Admin Dashboard
+        </p>
+        <ul class="menu-list">
+            <li><a>Acount Settings</a></li>
+        </ul>
+        <p class="menu-label">
+            Administration
+        </p>
+        <ul class="menu-list">
+            <li>
+                <a class="is-active">Products</a>
+                <ul>
+                    <li><a>Add New Products</a></li>
+                    <li><a>Remove Products</a></li>
+                </ul>
+            </li>
+        </ul>
+        <p class="menu-label">
+            Transactions
+        </p>
+        <ul class="menu-list">
+            <li><a>Payments</a></li>
+            <li><a>Reports</a></li>
+        </ul>
+    </aside>
+
+            <div class="tile is-ancestor">
+                <div class="tile is-4 is-vertical is-parent">
+                    <div class="tile is-child box">
+                        <p class="title">Messages</p>
+                            <article class="media" *ngFor="let message of messages">
+                                <div class="media-content">
+                                    <div class="content">
+                                        <p>
+                                            <strong>Sender:</strong>{{message.name}}
+                                            <br>
+                                            <strong>Email: </strong>{{message?.email}}
+                                            <br>
+                                            <strong>Subject: </strong>{{message?.subject}}
+                                            <br>
+                                            <strong>Message: </strong>
+                                            {{message?.message}}
+                                        </p>
+                                        <button class="button is-success" (click)="reply(message.email, message.subject)">Reply</button>
+                                    </div>
+                                </div>
+                                    <div class="media-right">
+                                        <button class="delete" (click)="deleteMessage(message.id)"></button>
+                                    </div>
+                            </article>
+                    </div>
+
+                </div>
+                <div class="tile is-parent">
+                    <div class="tile is-child box">
+                        <article class="tile is-child notification is-link">
+                        <label class="label has-text-white">Add New Product</label>
+                            <div class="field">
+                                <label class="label has-text-white">Name</label>
+                                <div class="control">
+                                    <input class="input" type="text" [(ngModel)]="name" placeholder="Product Name" required>
+                                </div>
+                            </div>
+                        
+                            <div class="field">
+                                <label class="label has-text-white">Price</label>
+                                <div class="control">
+                                    <input class="input" type="text" [(ngModel)]="price" placeholder="$00.00" required>
+                                </div>
+                            </div>
+                        
+                            <div class="field">
+                                <label class="label has-text-white">Category</label>
+                                <div class="control">
+                                    <div class="select">
+                                        <select [(ngModel)]="category" required>
+                                            <option>Select dropdown</option>
+                                            <option>Electronics</option>
+                                            <option>Clothing</option>
+                                            <option>Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="field">
+                                <label class="label has-text-white">Description</label>
+                                <div class="control">
+                                    <textarea class="textarea" type="text" [(ngModel)]="description" placeholder="Add you message here"
+                                        required></textarea>
+                                </div>
+                            </div>
+                        
+                            <div class="field">
+                                <label class="label has-text-white">Image</label>
+                                <div class="control">
+                                    <input type="file" (change)="fileChange($event)" required>
+                                </div>
+                            </div>
+                            <div class="field is-grouped">
+                                <div class="control">
+                                    <button class="button is-link" (click)="submit()">Submit</button>
+                                </div>
+                                <div class="control">
+                                    <button class="button is-link is-light">Cancel</button>
+                                </div>
+                            </div>
+                        
+                        </article>
+                    </div>
+                </div>
+            </div>
+</div>
+

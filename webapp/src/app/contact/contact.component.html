@@ -1,0 +1,92 @@
+
+<section class="hero is-fullheight">
+    <div class="hero-body">
+    <div class="container has-text-centered">
+        <p class="title">
+            <a>Contact From</a>
+        </p>
+        <p class="subtitle">
+            <a>Do you have any question or concerns? fill out this form to contact us.</a>
+        </p>
+        </div>
+        <div class="container has-text-left">
+
+            <div class="tile">
+                <div class="tile is-vertical is-12">
+                    <div class="tile">
+                        <div class="tile is-parent">
+                            <article class="tile is-child notification is-link">
+                                
+                                <div class="field">
+                                    <label class="label has-text-white">Name</label>
+                                    <div class="control">
+                                        <input class="input" type="text" [(ngModel)]="name" placeholder="First and Last Name" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="field">
+                                    <label class="label has-text-white">Email</label>
+                                    <div class="control">
+                                        <input class="input" type="text" [(ngModel)]="email" placeholder="example@gmail.com" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="field">
+                                    <label class="label has-text-white">Subject</label>
+                                    <div class="control">
+                                        <div class="select">
+                                            <select [(ngModel)]="subject" required>
+                                                <option>Select dropdown</option>
+                                                <option>Order question</option>
+                                                <option>Shipping question</option>
+                                                <option>Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="field">
+                                    <label class="label has-text-white">Message</label>
+                                    <div class="control">
+                                        <textarea class="textarea" type="text" [(ngModel)]="message" placeholder="Add you message here" required></textarea>
+                                    </div>
+                                </div>
+                                
+                                <div class="field">
+                                    <div class="control">
+                                        <label class="checkbox">
+                                            <input type="checkbox">
+                                            I agree to the <a data-target="#modal">terms and conditions</a>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="field is-grouped">
+                                    <div class="control">
+                                        <button class="button is-link" (click)="submit()">Submit</button>
+                                    </div>
+                                    <div class="control">
+                                        <button class="button is-link is-light">Cancel</button>
+                                    </div>
+                                </div>
+
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    $(".modal-button").click(function () {
+        var target = $(this).data("target");
+        $("html").addClass("is-clipped");
+        $(target).addClass("is-active");
+    });
+
+    $(".modal-close").click(function () {
+        $("html").removeClass("is-clipped");
+        $(this).parent().removeClass("is-active");
+    });
+</script>
+
