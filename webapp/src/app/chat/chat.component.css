@@ -25,3 +25,9 @@
 .padding {
     padding: 5px;
 }
+
+.hero {
+    background-image: url('essayBG.jpeg') !important;
+    background-size: cover;
+    background-position: center center;
+}

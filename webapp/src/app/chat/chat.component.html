@@ -1,38 +1,64 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <br>
-            <div class="card">
-                <h4 class="card-header center text-primary">Chatting With Mr BOT powered by ChatGPT</h4>
-                <div class="card-body">
-                    <h6 class="card-title text-success center">You are now chatting with Mr.BOT by ChatGPT</h6>
-                    <div class="row">
-                        <div class="col-md-2"></div>
-                        <div class="col-md-8">
-                            <div class="frame-box">
-                                <div *ngFor="let item of chatConversation">
-                                    <p class="card-text padding" [ngClass]="item.cssClass">
-                                        {{item.person}} : {{getText(item.response)}}
-                                    </p>
+<section class="hero is-fullheight">
+<div class="hero-body">
+<div class="container has-text-centered ">
+    <p class="title has-text-black">
+        <a> Online Prompt Generator</a>
+    </p>
+    <div class="tile is-ancestor">
+        <div class="tile is-4 is-vertical is-parent">
+            <div class="tile is-child box">
+                <p class="title">Your Generated Prompt</p>
+                <div *ngFor="let item of chatConversation">
+                    <p class="card-text padding" [ngClass]="item.cssClass">
+                        {{item.person}} : {{getText(item.response)}}
+                    </p>
+                </div>
+            </div>
+        </div>
 
-                                </div>
-                                <div><img *ngIf="showSpinner" width="50px" height="50px">
-                                </div>
-
-                            </div>
-                            <br>
-                            <textarea row="3" cols="15" class="form-control" [(ngModel)]="promptText"
-                                placeholder="Start by asking what you are looking for"></textarea>
-                            <br>
-                            <button class="btn btn-primary push-right" (click)="checkResponse()">Send</button>
+        <div class="tile is-parent">
+            <div class="tile is-child box">
+                <article class="tile is-child notification">
+                    <label class="label has-text-black">What are the parts of your prompt</label>
+                    <div class="field">
+                        <label class="label has-text-black">General Topic</label>
+                        <div class="control">
+                            <input class="input" type="text" [(ngModel)]="topic" placeholder="Topic" required>
                         </div>
-                        <div class="col-md-2">
-
+                    </div>
+                    
+                    <div class="field">
+                        <label class="label has-text-black">What is the task at hand</label>
+                        <div class="control">
+                            <div class="select">
+                                <select [(ngModel)]="task" required>
+                                    <option>Report</option>
+                                    <option>Presentation</option>
+                                    <option>Research</option>
+                                    <option></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="field is-grouped">
+                        <div class="control">
+                            <button class="button is-link" (click)="submit()">Submit</button>
+                        </div>
+                        <div class="control">
+                            <button class="button is-link is-light">Cancel</button>
                         </div>
                     </div>
 
-                </div>
+                </article>
             </div>
         </div>
     </div>
 </div>
+</div>
+</section>
+
+
+
+
+

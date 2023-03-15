@@ -3,6 +3,7 @@ import{Configuration, OpenAIApi} from 'openai';
 import { environment } from 'src/environments/environment';
 import { ChatWithBot, ResponseModel } from '../models/gpt-response';
 import { gptModels } from '../models/constants';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-chat',
@@ -17,7 +18,11 @@ response!: ResponseModel | undefined;
     promptText = '';
     showSpinner = false;
 
-  constructor() { }
+    topic!: string;
+    task!: string;
+
+
+  constructor(private _snackbar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -25,6 +30,17 @@ response!: ResponseModel | undefined;
   checkResponse() {
     this.pushChatContent(this.promptText,'You','person');
     this.invokeGPT();
+  }
+
+  submit(){
+    if(this.topic!=null || this.task!==null){
+      const finalPromt = "Wrtie a Prompt about " + this.topic + " For a " + this.task;
+    this.promptText = finalPromt;
+    this.pushChatContent(this.promptText,'You','person');
+    this.invokeGPT();
+    }
+    
+
   }
 
 
@@ -64,7 +80,7 @@ response!: ResponseModel | undefined;
       let apiResponse =  await openai.createCompletion(requestData);
 
       this.response = apiResponse.data as ResponseModel;
-      this.pushChatContent(this.response.choices[0].text.trim(),'Mr Bot','bot');
+      this.pushChatContent(this.response.choices[0].text.trim(),'Prompt Bot','bot');
 debugger;
       this.showSpinner = false;
     }catch(error:any) {
