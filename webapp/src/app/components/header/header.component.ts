@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Cart, CartItem } from 'src/app/models/cart.model';
 import { CartService } from 'src/app/services/cart.service';
 
@@ -26,7 +27,7 @@ export class HeaderComponent {
   }
 
 
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService, private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -39,6 +40,10 @@ export class HeaderComponent {
     this.cartService.clearCart();
   }
 
+  logout(){
+    localStorage.removeItem('Admin');
+    this.router.navigate(["/login"]);
+  }
   
 
 }

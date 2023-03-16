@@ -4,7 +4,7 @@
     <p class="title has-text-black">
         <a> Online Prompt Generator</a>
     </p>
-    <div class="tile is-ancestor">
+    <div class="tile is-parent">
         <div class="tile is-4 is-vertical is-parent">
             <div class="tile is-child box">
                 <p class="title">Your Generated Prompt</p>
@@ -17,13 +17,12 @@
         </div>
 
         <div class="tile is-parent">
-            <div class="tile is-child box">
                 <article class="tile is-child notification">
                     <label class="label has-text-black">What are the parts of your prompt</label>
                     <div class="field">
                         <label class="label has-text-black">General Topic</label>
                         <div class="control">
-                            <input class="input" type="text" [(ngModel)]="topic" placeholder="Topic" required>
+                            <input class="input" type="text" [(ngModel)]="topic" placeholder="Enter Your Topic Here" required>
                         </div>
                     </div>
                     
@@ -51,7 +50,7 @@
                     </div>
 
                 </article>
-            </div>
+        
         </div>
     </div>
 </div>
