@@ -15,10 +15,10 @@ import java.util.List;
 
 @Service
 @Slf4j
-public class FormService {
+public class ContactService {
 
     @Autowired
-    private ContactRepository formRepository;
+    private ContactRepository contactRepository;
     @Autowired
     private WebClient.Builder webClient;
 
@@ -31,14 +31,14 @@ public class FormService {
                 .build();
 
 
-        formRepository.save(form);
+        contactRepository.save(form);
         log.info("Form " + form.getId() + " is saved");
         return "Form is saved";
 
     }
 
     public List<FormResponse> getAllForms(){
-        List<Form> formList = formRepository.findAll();
+        List<Form> formList = contactRepository.findAll();
 
         return formList.stream().map(this::mapToFormRepository).toList();
     }
@@ -57,8 +57,8 @@ public class FormService {
     }
 
     public String deleteForm(int id){
-        if(formRepository.existsById(id)){
-            formRepository.deleteById(id);
+        if(contactRepository.existsById(id)){
+            contactRepository.deleteById(id);
             log.info("Form " + id + " was deleted");
             return "Form is deleted";
         }

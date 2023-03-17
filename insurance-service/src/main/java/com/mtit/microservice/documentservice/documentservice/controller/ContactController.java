@@ -2,16 +2,11 @@ package com.mtit.microservice.documentservice.documentservice.controller;
 
 import com.mtit.microservice.documentservice.documentservice.dto.FormRequest;
 import com.mtit.microservice.documentservice.documentservice.dto.FormResponse;
-import com.mtit.microservice.documentservice.documentservice.dto.ProductResponse;
-import com.mtit.microservice.documentservice.documentservice.dto.ProductRequest;
 import com.mtit.microservice.documentservice.documentservice.service.EmailSenderService;
-import com.mtit.microservice.documentservice.documentservice.service.FormService;
-import com.mtit.microservice.documentservice.documentservice.service.ProductService;
-import com.mtit.microservice.documentservice.documentservice.util.Product;
+import com.mtit.microservice.documentservice.documentservice.service.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
@@ -19,13 +14,13 @@ import java.util.Map;
 
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")
-public class ProductController {
+public class ContactController {
+
+//    @Autowired
+//    private ProductService paymentService;
 
     @Autowired
-    private ProductService paymentService;
-
-    @Autowired
-    private FormService formService;
+    private ContactService formService;
 
     @Autowired
     private EmailSenderService emailSenderService;

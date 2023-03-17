@@ -11,16 +11,16 @@ import { HomeComponent } from './pages/home/home.component';
 import { StartComponent } from './start/start/start.component';
 
 const routes: Routes = [
-  {path: "start", component:StartComponent},
+  //{path: "start", component:StartComponent},
   {path: "replyForm", component:ReplyFormComponent},
   {path: "admin", component:AdminComponent},
   {path: "chat", component:ChatComponent},
   {path: "home", component:HomeComponent},
-  {path: "cart", component:CartComponent},
+  //{path: "cart", component:CartComponent},
   {path: "login", component:LoginComponent},
   {path: "about", component:AboutComponent},
   {path: "contact", component:ContactComponent},
-  {path: "", redirectTo:"start", pathMatch:"full"}];
+  {path: "", redirectTo:"chat", pathMatch:"full"}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
